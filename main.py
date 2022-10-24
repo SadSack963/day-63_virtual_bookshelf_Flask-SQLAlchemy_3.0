@@ -41,7 +41,7 @@ class Books(db.Model):
 
 # Create the database file and tables
 # This code must come _after_ the class definition
-if not os.path.isfile(DB_URI):
+if not os.path.isfile(os.path.join(app.instance_path, DB_URI.split('///')[1])):
     with app.app_context():
         db.create_all()
 
